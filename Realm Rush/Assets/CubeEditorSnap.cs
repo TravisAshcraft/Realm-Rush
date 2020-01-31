@@ -23,6 +23,8 @@ public class CubeEditorSnap : MonoBehaviour
         transform.position = new Vector3(snapPos.x, 0f, snapPos.z);
 
         textMesh = GetComponentInChildren<TextMesh>(); //this is how you find a component in a child;
-        textMesh.text = snapPos.x / gridSize + "," + snapPos.z / gridSize;
+        string labelText = snapPos.x / gridSize + "," + snapPos.z / gridSize;
+        textMesh.text = labelText;
+        gameObject.name = textMesh.text; // reads the label name from the text mesh to display in the heirarchy
     }
 }

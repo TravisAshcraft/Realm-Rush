@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6491168354007690644}
   - component: {fileID: 5619218352589134859}
+  - component: {fileID: 4365236694518585624}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -50,6 +51,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridSize: 10
+--- !u!114 &4365236694518585624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564224458150651201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6a367f4dd7c7f3458d197467b549686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2187875690622977389
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,7 +105,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -129,9 +142,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2187875690622977389}
-  m_Text: 99,99
+  m_Text: 0,0
   m_OffsetZ: 0
-  m_CharacterSize: 0.075
+  m_CharacterSize: 0.06
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -345,7 +358,7 @@ GameObject:
   - component: {fileID: 4294137890158991296}
   - component: {fileID: 6209774177341708991}
   m_Layer: 0
-  m_Name: Right Side
+  m_Name: Left Side
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -391,7 +404,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0e329bc921ab68145a9720fe94fa7982, type: 2}
+  - {fileID: 2100000, guid: a621ab72bd86df24fa5846e23140e7fe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -439,7 +452,7 @@ GameObject:
   - component: {fileID: 2122520247345952554}
   - component: {fileID: 2912068245595859489}
   m_Layer: 0
-  m_Name: Back
+  m_Name: Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -533,7 +546,7 @@ GameObject:
   - component: {fileID: 4479570193972509550}
   - component: {fileID: 6240496764004707726}
   m_Layer: 0
-  m_Name: Left Side
+  m_Name: Right Side
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -627,7 +640,7 @@ GameObject:
   - component: {fileID: 8912381134883413906}
   - component: {fileID: 6091334615408811012}
   m_Layer: 0
-  m_Name: Front
+  m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -673,7 +686,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7562c9eb79c09d842bbf4c8ed917420c, type: 2}
+  - {fileID: 2100000, guid: a621ab72bd86df24fa5846e23140e7fe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
