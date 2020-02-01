@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] List<Block> path;
+    [SerializeField] List<Waypoint> path;
     float delayMove = 1f;
 
     // Start is called before the first frame update
@@ -17,7 +17,7 @@ public class EnemyMovement : MonoBehaviour
     IEnumerator PrintAllWaypoints()
     {
         print("Starting path");
-        foreach(Block waypoint in path) //calling the list Block renaming it waypoint in the path 
+        foreach(Waypoint waypoint in path) //calling the list Block renaming it waypoint in the path 
         {
             print(waypoint);
             transform.position = waypoint.transform.position;

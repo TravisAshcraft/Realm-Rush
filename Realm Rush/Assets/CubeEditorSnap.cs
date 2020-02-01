@@ -3,27 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteInEditMode]
+[RequireComponent(typeof(Waypoint))]
 public class CubeEditorSnap : MonoBehaviour
 {
-    [SerializeField][Range(1f,20f)]float gridSize = 10f;
+   
 
-    TextMesh textMesh;
+    Waypoint waypoint;
+    
 
-    private void Start()
+    private void Awake()
     {
-        
+        waypoint = GetComponent<Waypoint>();
     }
 
     private void Update()
     {
-        Vector3 snapPos;
-        
-        snapPos.x = Mathf.RoundToInt(transform.position.x / gridSize) * gridSize;
-        snapPos.z = Mathf.RoundToInt(transform.position.z / gridSize) * gridSize;
-        transform.position = new Vector3(snapPos.x, 0f, snapPos.z);
+        SnapToGrid();
+        UpdateLabel();
+    }
 
-        textMesh = GetComponentInChildren<TextMesh>(); //this is how you find a component in a child;
-        string labelText = snapPos.x / gridSize + "," + snapPos.z / gridSize;
+    private void SnapToGrid()
+    {
+        int gridSize = waypoint.GetGridSize();
+        transform.position = new Vector3(
+           waypoint.GetGridPos().x,
+            0f, 
+            waypoint.GetGridPos().y
+         );
+    }
+
+    private void UpdateLabel()
+    {
+        
+       TextMesh textMesh = GetComponentInChildren<TextMesh>(); //this is how you find a component in a child;
+        int gridSize = waypoint.GetGridSize();
+        string labelText = waypoint.GetGridPos().x/ gridSize +
+            "," + 
+            waypoint.GetGridPos().y / gridSize;
         textMesh.text = labelText;
         gameObject.name = textMesh.text; // reads the label name from the text mesh to display in the heirarchy
     }
