@@ -6,10 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Waypoint))]
 public class CubeEditorSnap : MonoBehaviour
 {
-    
-    
     Waypoint waypoint;
-    
 
     private void Awake()
     {
@@ -36,7 +33,6 @@ public class CubeEditorSnap : MonoBehaviour
     {
         
        TextMesh textMesh = GetComponentInChildren<TextMesh>(); //this is how you find a component in a child;
-        int gridSize = waypoint.GetGridSize();
         string labelText = waypoint.GetGridPos().x +
             "," + 
             waypoint.GetGridPos().y ;

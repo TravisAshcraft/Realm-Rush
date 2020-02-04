@@ -10,6 +10,8 @@ public class Pathfinder : MonoBehaviour
     Queue<Waypoint> queue = new Queue<Waypoint>();
     Dictionary<Vector2Int, Waypoint> grid = new Dictionary<Vector2Int, Waypoint>();
     bool isRunning = true;
+    List<Waypoint> path = new List<Waypoint>(); 
+
     Vector2Int[] directions =
     { 
         Vector2Int.up,
@@ -17,17 +19,31 @@ public class Pathfinder : MonoBehaviour
         Vector2Int.left,
         Vector2Int.right
     }; 
-    
-    // Start is called before the first frame update
-    void Start()
+
+    public List<Waypoint> GetPath()
     {
         LoadBlocks();
         ColorStartAndEnd();
-        Pathfind();
-        //ExploreNeighbors();
+        BreadthFirstSearch();
+        CreatePath();
+        return path;
     }
 
-    private void Pathfind()
+    private void CreatePath()
+    {
+        path.Add(endWaypoint);
+
+        Waypoint previous = endWaypoint.exploredFrom; // explains what the previous is from endWaypoint
+        while (previous != startWaypoint)
+        {
+            path.Add(previous); // adding the previous waypoint 
+            previous = previous.exploredFrom; // gets the previous neighbour then explores from that block to find the next previous neighbour
+        }
+        path.Add(startWaypoint);
+        path.Reverse();
+    }
+
+    private void BreadthFirstSearch()
     {
         queue.Enqueue(startWaypoint);
 
@@ -38,14 +54,12 @@ public class Pathfinder : MonoBehaviour
             ExploreNeighbors();
             searchCenter.isExplored = true;
         }
-        print("Finished pathfinding?");
     }
 
     private void HaltIfEndFound()
     {
         if (searchCenter == endWaypoint)
         {
-            print("searching from end node, therefore stopping");// todo remove later;
             isRunning = false;
         }
     }
@@ -56,15 +70,10 @@ public class Pathfinder : MonoBehaviour
         foreach ( Vector2Int direction in directions)
         {
             Vector2Int neighbourCoordinates = searchCenter.GetGridPos() + direction;
-            try
+            if(grid.ContainsKey(neighbourCoordinates))
             {
                 QueueNewNeighbour(neighbourCoordinates);
             }
-            catch
-            {
-                //do nothing
-            }
-            
         }
     }
 
@@ -104,11 +113,5 @@ public class Pathfinder : MonoBehaviour
                 grid.Add(gridPos, waypoint);
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
