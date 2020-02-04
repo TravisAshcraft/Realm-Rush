@@ -6,8 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(Waypoint))]
 public class CubeEditorSnap : MonoBehaviour
 {
-   
-
+    
+    
     Waypoint waypoint;
     
 
@@ -26,9 +26,9 @@ public class CubeEditorSnap : MonoBehaviour
     {
         int gridSize = waypoint.GetGridSize();
         transform.position = new Vector3(
-           waypoint.GetGridPos().x,
+           waypoint.GetGridPos().x * gridSize,
             0f, 
-            waypoint.GetGridPos().y
+            waypoint.GetGridPos().y * gridSize
          );
     }
 
@@ -37,10 +37,11 @@ public class CubeEditorSnap : MonoBehaviour
         
        TextMesh textMesh = GetComponentInChildren<TextMesh>(); //this is how you find a component in a child;
         int gridSize = waypoint.GetGridSize();
-        string labelText = waypoint.GetGridPos().x/ gridSize +
+        string labelText = waypoint.GetGridPos().x +
             "," + 
-            waypoint.GetGridPos().y / gridSize;
+            waypoint.GetGridPos().y ;
         textMesh.text = labelText;
         gameObject.name = textMesh.text; // reads the label name from the text mesh to display in the heirarchy
+        
     }
 }
