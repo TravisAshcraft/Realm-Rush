@@ -27,4 +27,16 @@ public class Waypoint : MonoBehaviour
        MeshRenderer topMeshRenderer = transform.Find("Top").GetComponent<MeshRenderer>();
         topMeshRenderer.material.color = color;
     }
+
+
+    private void OnMouseOver()
+    {
+        var TowerBlock = CompareTag("Friendly Tag");
+        print(gameObject.name);
+    }
+
+    private void OnMouseExit()
+    {
+        print(gameObject.name);
+    }
 }

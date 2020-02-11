@@ -93,7 +93,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2862232096793824852}
-  m_Text: 9,-2
+  m_Text: -12,-8
   m_OffsetZ: 0
   m_CharacterSize: 0.06
   m_LineSpacing: 1
@@ -196,10 +196,10 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3406169502150043055}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &5950160680094919024
@@ -213,6 +213,7 @@ GameObject:
   - component: {fileID: 3286949786960147301}
   - component: {fileID: 6895116598941503215}
   - component: {fileID: 1707862887687740084}
+  - component: {fileID: 8036364049369541716}
   m_Layer: 0
   m_Name: 9,-2
   m_TagString: Untagged
@@ -227,7 +228,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5950160680094919024}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 90, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -262,6 +263,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b52e281bc16742448dd4de57a37984f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &8036364049369541716
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5950160680094919024}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9, y: 9, z: 9}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1001 &6602266399462846073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -317,11 +331,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 33946681911427330, guid: f27a4597efbf3694b95687e7aeef7fcc,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: 427fe1209357f594e908fbc42cb22d3d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f27a4597efbf3694b95687e7aeef7fcc, type: 3}
 --- !u!4 &6597782366270905223 stripped

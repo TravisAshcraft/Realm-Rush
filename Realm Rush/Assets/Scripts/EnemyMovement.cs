@@ -14,13 +14,10 @@ public class EnemyMovement : MonoBehaviour
 
    IEnumerator FollowPath(List<Waypoint> path)
     {
-        print("Starting path");
         foreach(Waypoint waypoint in path) //calling the list Block renaming it waypoint in the path 
         {
-            print(waypoint);
             transform.position = waypoint.transform.position;
             yield return new WaitForSeconds(1f);
         }
-        print("End of path");
     }
 }

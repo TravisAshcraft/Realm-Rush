@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] GameObject enemy;
+    [SerializeField] EnemyMovement enemy;
     [SerializeField] Transform spawnPoint;
     float timeBetweenSpawns = 4f;
 
@@ -23,7 +23,10 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnEnemies()
     {
-        yield return new WaitForSeconds(timeBetweenSpawns);
-        GameObject enemyClone = Instantiate(enemy, spawnPoint.position, spawnPoint.rotation) as GameObject;
+        while(true)
+        {
+            Instantiate(enemy, transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(timeBetweenSpawns);
+        }
     }
 }
