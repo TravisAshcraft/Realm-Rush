@@ -6,6 +6,7 @@ public class Waypoint : MonoBehaviour
 {
     //public ok as data
     public bool isExplored = false;
+    public bool isPlaceable = true;
     public Waypoint exploredFrom;
     const int gridSize = 10;
     Vector2Int gridPos;
@@ -31,8 +32,15 @@ public class Waypoint : MonoBehaviour
 
     private void OnMouseOver()
     {
-        var TowerBlock = CompareTag("Friendly Tag");
-        print(gameObject.name);
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (isPlaceable)
+            {
+                print(gameObject.name + "tower Placement");
+            }
+            print("Hello");
+        }
+            
     }
 
     private void OnMouseExit()

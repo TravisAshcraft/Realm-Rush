@@ -39,16 +39,21 @@ public class Pathfinder : MonoBehaviour
 
     private void CreatePath()
     {
-        path.Add(endWaypoint);
-
+        SetAsPath(endWaypoint);
         Waypoint previous = endWaypoint.exploredFrom; // explains what the previous is from endWaypoint
         while (previous != startWaypoint)
         {
-            path.Add(previous); // adding the previous waypoint 
             previous = previous.exploredFrom; // gets the previous neighbour then explores from that block to find the next previous neighbour
+            SetAsPath(previous);
         }
-        path.Add(startWaypoint);
+        SetAsPath(startWaypoint);
         path.Reverse();
+    }
+
+    private void SetAsPath(Waypoint waypoint)
+    {
+        path.Add(endWaypoint);
+        endWaypoint.isPlaceable = false;
     }
 
     private void BreadthFirstSearch()
